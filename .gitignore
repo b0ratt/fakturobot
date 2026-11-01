@@ -1,0 +1,28 @@
+# Prawdziwe dane: istnieją tylko na serwerze, nigdy w repo
+.env
+.env.*
+!.env.example
+config.yaml
+*.pdf
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+data/
+*.log
+client_secret*.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+build/
+dist/
+*.egg-info/
+
+# Narzędzia lokalne
+.claude/
+.vscode/
+.idea/

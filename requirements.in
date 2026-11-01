@@ -1,0 +1,7 @@
+# Zależności produkcyjne. Lock z hashami (Linux, Python 3.12):
+#   uv pip compile requirements.in --generate-hashes --python-version 3.12 --python-platform x86_64-unknown-linux-gnu --no-header -o requirements.txt
+#   uv pip compile requirements-dev.in --universal --generate-hashes --python-version 3.12 --no-header -o requirements-dev.txt
+python-telegram-bot[job-queue]
+httpx
+PyYAML
+reportlab

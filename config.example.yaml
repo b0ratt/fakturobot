@@ -1,0 +1,54 @@
+# Przykładowa konfiguracja fakturobota. Wszystkie dane są FIKCYJNE.
+# Prawdziwy plik leży tylko na serwerze: /etc/fakturobot/config.yaml (nie trafia do repo).
+
+stawka_godzinowa: "100.00"      # zł za godzinę; kwota = godziny × stawka (liczona na Decimal)
+pozycja_jako: kwota             # kwota: 1 szt × (godziny × stawka) | godziny: ilość = godziny, cena = stawka
+termin_platnosci_dni: 14        # termin płatności = data wystawienia + N dni
+
+numeracja:
+  format: "{numer}/{rok}"       # np. 10/2026
+  pierwszy_numer: 1             # numer pierwszej faktury wystawionej przez bota…
+  rok_pierwszego_numeru: 2026   # …w tym roku; w kolejnych latach numeracja zaczyna się od 1
+
+harmonogram:                    # strefa Europe/Warsaw
+  dni_przed_koncem: [3, 2, 1]   # w te dni (przed ostatnim dniem miesiąca) bot pyta o godziny
+  godzina: "10:00"              # pora pytań; ostatniego dnia miesiąca o tej porze wystawia zatwierdzoną fakturę
+  przypomnienie_wieczorne: "18:00"  # drugie przypomnienie w ostatni dzień miesiąca
+  przypominaj_do_dnia: 15       # w następnym miesiącu przypomina o zaległej fakturze do tego dnia
+
+mail:                           # znaczniki: {miesiac} → „listopad 2026”, {numer} → „11/2026”
+  temat: "Faktura {miesiac} - Jan Kowalski"
+  tresc: |
+    Dzień dobry,
+
+    Wysyłam fakturę sprzedażową za {miesiac}.
+
+    Pozdrawiam
+
+    --
+    Wysłane przez fakturobota 🤖 (built with Claude)
+
+faktura:
+  tytul: "Faktura"
+  miejsce_wystawienia: "Przykładowo"
+  wystawil: "JAN KOWALSKI"      # osoba upoważniona do wystawienia faktury
+  sprzedawca:                   # linie dokładnie tak, jak mają być na fakturze
+    - "Kowalski Software Jan Kowalski"
+    - "ul. Przykładowa 1"
+    - "00-001 Przykładowo"
+    - "NIP 0000000000"
+  nabywca:
+    - "Przykładowa Firma GmbH"
+    - "Beispielstraße 1, 10115 Berlin"
+    - "Niemcy"
+    - "NIP DE 123456789"
+  pozycja:
+    nazwa: "Usługi programistyczne"
+    pkwiu: "62.01.11.0"
+    jednostka: szt
+  vat: zw                       # zw = zwolnienie; dla płatnika VAT stawka w procentach, np. 23
+  sposob_zaplaty: Przelew
+  konto: "00 0000 0000 0000 0000 0000 0000"
+  uwagi: |-
+    Przykładowa uwaga na fakturze.
+    Zwolnienie z tytułu art. 113 ust. 1 i 9
