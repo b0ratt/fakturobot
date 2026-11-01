@@ -33,8 +33,6 @@ Daty: wystawienie i sprzedaż to ostatni dzień fakturowanego miesiąca, a termi
 
 Bot reaguje tylko na Twój `chat_id`, działa przez long polling (bez otwartych portów), a ponowne kliknięcie przycisku nie wystawi ani nie wyśle niczego drugi raz.
 
-> ⚠️ Faktury powstają poza KSeF i poza programem księgowym. Upewnij się z księgową, że w Twojej sytuacji jest to dopuszczalne.
-
 ## Konfiguracja
 
 - **`config.yaml`** ([przykład](config.example.yaml)): stawka, numeracja, harmonogram, treść maila i stałe dane faktury (sprzedawca, nabywca, pozycja, konto, uwagi).
